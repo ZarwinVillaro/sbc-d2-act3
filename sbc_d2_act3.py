@@ -1,7 +1,7 @@
 import random
 
-def generate_result():
-    return [random.randint(1, 6) for _ in range(3)]
+def result():
+    return [random.randint(1, 10) for _ in range(3)]
 
 def check_win(bet, result):
     return "You win!" if bet == result else "You partially win!" if set(bet) == set(result) else "You lose!"
@@ -9,7 +9,7 @@ def check_win(bet, result):
 def main():
     try:
         bet = list(map(int, input("Enter your bet (e.g., 1 2 3): ").split()))
-        result = generate_result()
+        result = result()
         print(f"Result: {result} {check_win(bet, result)}")
     except ValueError:
         print("Invalid input. Please enter three space-separated numbers.")
